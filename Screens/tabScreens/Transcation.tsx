@@ -169,7 +169,7 @@ function Transaction() {
           })}
         </ScrollView>
         <Text
-          style={tw`text-lg font-medium tracking-wide py-3 px-2 text-[#232323]`}>
+          style={tw`text-lg font-medium tracking-wide py-3 px-3 text-[#232323]`}>
           Recent Transaction
         </Text>
         {/* //todo lists */}
