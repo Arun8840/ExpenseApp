@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/RedditSans-Bold.ttf",
+      "sha1": "9c100a09fcd123605e41a6619e3310f57ff88f4d"
+    },
+    {
+      "path": "assets/fonts/RedditSans-SemiBold.ttf",
+      "sha1": "b7cb735d1c3a90909a7a34306eeba9b53e1c157e"
+    },
+    {
+      "path": "assets/fonts/Teachers-ExtraBoldItalic.ttf",
+      "sha1": "0c829706e39d721fa316a1021c11b71d9468aeda"
+    },
+    {
+      "path": "assets/fonts/Teachers-Medium.ttf",
+      "sha1": "b5b754c2949357f84b57e53cc60a2ec30c6dcb35"
+    }
+  ]
+}

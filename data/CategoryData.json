@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Groceries",
+    "description": "Expenses related to food and household supplies",
+    "monthlyBudget": 300,
+    "color": "bg-[#FD841F]",
+    "icon": "cart"
+  },
+  {
+    "id": 2,
+    "name": "Rent",
+    "description": "Monthly rent payments for housing",
+    "monthlyBudget": 1200,
+    "color": "bg-[#232323]",
+    "icon": "home-city"
+  },
+  {
+    "id": 3,
+    "name": "Utilities",
+    "description": "Expenses for electricity, water, internet, etc.",
+    "monthlyBudget": 150,
+    "color": "bg-[#3cbd7e]",
+    "icon": "van-utility"
+  },
+  {
+    "id": 4,
+    "name": "Transportation",
+    "description": "Expenses for public transport, fuel, car maintenance",
+    "monthlyBudget": 200,
+    "color": "bg-[#57A6A1]",
+    "icon": "car-side"
+  },
+  {
+    "id": 5,
+    "name": "Entertainment",
+    "description": "Expenses for movies, dining out, hobbies",
+    "monthlyBudget": 100,
+    "color": "bg-[#FF69B4]",
+    "icon": "movie-open"
+  },
+  {
+    "id": 6,
+    "name": "Healthcare",
+    "description": "Expenses for medical bills, insurance, medications",
+    "monthlyBudget": 150,
+    "color": "bg-[#A0153E]",
+    "icon": "cards-heart"
+  }
+]
