@@ -145,7 +145,7 @@ function Transaction() {
             return (
               <View
                 key={CategorysTypes?.id}
-                style={tw`min-w-[150px] rounded-2xl shadow-md p-2 bg-white mx-1 ${CategorysTypes?.color}`}>
+                style={tw`min-w-[160px] rounded-2xl shadow-md p-2 bg-white mx-1 ${CategorysTypes?.color}`}>
                 <View style={tw`flex flex-row items-center`}>
                   <View
                     style={tw`bg-white flex justify-center items-center h-[30px] w-[30px] rounded-lg`}>
