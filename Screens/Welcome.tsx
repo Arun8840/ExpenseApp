@@ -12,6 +12,7 @@ import {
   useColorScheme,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import tw from 'twrnc';
 function Welcome() {
   const isDarkMode = useColorScheme() === 'dark';
   const navigation: any = useNavigation();
@@ -23,72 +24,36 @@ function Welcome() {
     navigation.navigate('Home');
   };
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <View style={styles?.sectionContainer}>
-        <Image
-          style={styles?.bannerImage}
-          source={require('../images/banner.png')}
-        />
-        <Text style={styles?.header}>Always take control you finance</Text>
-        <Text style={styles?.content}>
-          finances must be arranged to set a better lifestyle in the feature
-        </Text>
-        {/* //todo button */}
-        <TouchableOpacity onPress={handleNavigate} style={styles.button}>
-          <Text style={styles.buttonText}>Get Started</Text>
+    <View style={tw`bg-white flex flex-col justify-between flex-1`}>
+      <View style={tw`flex flex-1 gap-2`}>
+        <View style={tw`w-full max-h-[450px]`}>
+          <Image
+            style={tw`w-full h-full`}
+            source={require('../images/banner.png')}
+          />
+        </View>
+        <View style={tw` flex-1 flex flex-col justify-center items-center`}>
+          <Text style={tw`text-[40px] font-bold text-center leading-10 px-3`}>
+            Always take control you finance
+          </Text>
+          <Text
+            style={tw`text-center text-sm tracking-wide text-stone-500 px-5 py-4 capitalize`}>
+            finances must be arranged to set a better lifestyle in the feature
+          </Text>
+        </View>
+      </View>
+      {/* //todo button */}
+      <View>
+        <TouchableOpacity
+          onPress={handleNavigate}
+          style={tw`bg-[#232323] py-4 rounded-lg w-[90%] mx-auto`}>
+          <Text
+            style={tw`text-white font-medium text-center text-sm tracking-wide`}>
+            Get Started
+          </Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
-const styles = StyleSheet.create({
-  sectionContainer: {
-    backgroundColor: 'white',
-    paddingTop: 10,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  header: {
-    fontSize: 40,
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  content: {
-    textTransform: 'capitalize',
-    fontSize: 15,
-    fontWeight: '400',
-    textAlign: 'center',
-    color: 'gray',
-    paddingHorizontal: 30,
-    paddingVertical: 40,
-  },
-  bannerImage: {
-    objectFit: 'contain',
-    width: '100%',
-    maxHeight: 450,
-  },
-  button: {
-    backgroundColor: '#232323',
-    padding: 15,
-    width: '90%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    textAlign: 'center',
-    borderRadius: 5,
-  },
-  buttonText: {
-    textAlign: 'center',
-    color: 'white',
-  },
-});
 export default Welcome;
