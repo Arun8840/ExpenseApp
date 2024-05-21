@@ -6,6 +6,7 @@ import Welcome from './Screens/Welcome';
 import Home from './Screens/Home';
 import TransactionDetails from './Screens/TransactionDetails';
 import Settings from './Screens/Settings';
+import CreateTransaction from './Components/CreateTransaction';
 const Stack = createNativeStackNavigator();
 
 const App = (): JSX.Element => {
@@ -32,6 +33,11 @@ const App = (): JSX.Element => {
             options={{headerShown: true}}
             name="Settings"
             component={Settings}
+          />
+          <Stack.Screen
+            options={{headerShown: true, presentation: 'modal'}}
+            name="Create Transaction"
+            component={CreateTransaction}
           />
         </Stack.Navigator>
       </SafeAreaView>

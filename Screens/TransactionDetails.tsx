@@ -22,6 +22,7 @@ function TransactionDetails() {
         {Array.from({length: 5}, (_, index) => {
           return (
             <View
+              key={index}
               style={tw`bg-stone-100 rounded-lg p-1 w-[50px] h-[50px] mx-1`}></View>
           );
         })}
