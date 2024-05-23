@@ -23,32 +23,19 @@ function ListItems({lists, index}: PropsTypes) {
         <View style={tw`rounded-full bg-stone-100 p-4`}>
           <MaterialIcon name={lists?.icon} size={20} />
         </View>
-        <View style={tw`flex-1`}>
-          <View style={tw`flex justify-between flex-row pb-2`}>
+        <View style={tw`flex-1 flex flex-row justify-between items-center`}>
+          <View style={tw``}>
             <Text
-              style={tw`text-[16px] font-medium tracking-wide text-stone-600`}>
+              style={tw`text-[17px] font-semibold tracking-wide text-stone-600`}>
               {lists?.title}
             </Text>
-            <Icon
-              style={tw`${
-                lists?.paymentType === 'cash'
-                  ? 'text-[#e4b938]'
-                  : 'text-[#3cbd7e]'
-              }`}
-              name={lists?.paymentType}
-              size={20}
-            />
-          </View>
-          <View style={tw`flex justify-between flex-row pt-2`}>
-            <Text
-              style={tw`text-[12px] font-medium tracking-wide text-stone-400`}>
+            <Text style={tw`text-sm tracking-wide font-medium text-stone-600`}>
               {lists?.date}
             </Text>
-            <Text
-              style={tw`text-[12px] font-semibold tracking-wide text-red-500`}>
-              ${lists?.totalAmount}
-            </Text>
           </View>
+          <Text style={tw`text-red-500 text-sm font-semibold`}>
+            ${lists?.totalAmount}
+          </Text>
         </View>
         <Icon name="chevron-forward" style={tw`text-stone-400`} />
       </View>

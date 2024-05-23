@@ -4,4 +4,6 @@ export interface TransactionTypes {
   date: string;
   totalAmount: number;
   icon?: string;
+  image: string;
+  description: string;
 }
