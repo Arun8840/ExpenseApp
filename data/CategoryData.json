@@ -4,7 +4,8 @@
     "name": "Groceries",
     "description": "Expenses related to food and household supplies",
     "monthlyBudget": 300,
-    "color": "bg-[#FD841F]",
+    "bgColor": "bg-[#FD841F]",
+    "color": "text-[#FD841F]",
     "icon": "cart"
   },
   {
@@ -12,7 +13,8 @@
     "name": "Rent",
     "description": "Monthly rent payments for housing",
     "monthlyBudget": 1200,
-    "color": "bg-[#232323]",
+    "bgColor": "bg-[#DCFFB7]",
+    "color": "text-[#DCFFB7]",
     "icon": "home-city"
   },
   {
@@ -20,7 +22,8 @@
     "name": "Utilities",
     "description": "Expenses for electricity, water, internet, etc.",
     "monthlyBudget": 150,
-    "color": "bg-[#3cbd7e]",
+    "bgColor": "bg-[#3cbd7e]",
+    "color": "text-[#3cbd7e]",
     "icon": "van-utility"
   },
   {
@@ -28,7 +31,8 @@
     "name": "Transportation",
     "description": "Expenses for public transport, fuel, car maintenance",
     "monthlyBudget": 200,
-    "color": "bg-[#57A6A1]",
+    "bgColor": "bg-[#57A6A1]",
+    "color": "text-[#57A6A1]",
     "icon": "car-side"
   },
   {
@@ -36,7 +40,8 @@
     "name": "Entertainment",
     "description": "Expenses for movies, dining out, hobbies",
     "monthlyBudget": 100,
-    "color": "bg-[#FF69B4]",
+    "bgColor": "bg-[#FF69B4]",
+    "color": "text-[#FF69B4]",
     "icon": "movie-open"
   },
   {
@@ -44,7 +49,8 @@
     "name": "Healthcare",
     "description": "Expenses for medical bills, insurance, medications",
     "monthlyBudget": 150,
-    "color": "bg-[#A0153E]",
+    "bgColor": "bg-[#A0153E]",
+    "color": "text-[#A0153E]",
     "icon": "cards-heart"
   }
 ]

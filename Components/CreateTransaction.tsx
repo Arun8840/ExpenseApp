@@ -68,15 +68,17 @@ function CreateTransaction() {
     data && navigate?.goBack();
   };
   return (
-    <ScrollView style={tw`flex-1 bg-white max-h-[92%]`}>
-      <View style={tw`p-4 bg-white flex-1 flex gap-2`}>
+    <ScrollView style={tw`flex-1 bg-[#0c0c0c] max-h-[92%]`}>
+      <View style={tw`p-4 bg-[#0c0c0c] flex-1 flex gap-2`}>
         <TouchableOpacity
-          style={tw`bg-stone-100 min-h-[150px] rounded-lg p-2 flex justify-center items-center`}>
-          <Text>Add Image</Text>
+          style={tw`bg-stone-900 min-h-[150px] rounded-lg p-2 flex justify-center items-center`}>
+          <Text style={tw`text-white`}>Add Image</Text>
         </TouchableOpacity>
         {/* //todo title */}
         <View style={tw``}>
-          <Text style={tw`font-medium text-sm tracking-wide py-2`}>Title</Text>
+          <Text style={tw`font-medium text-sm tracking-wide py-2 text-white`}>
+            Title
+          </Text>
 
           <Controller
             control={control}
@@ -86,7 +88,7 @@ function CreateTransaction() {
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <TextInput
-                style={tw`text-sm rounded-lg font-medium px-2 py-3 bg-[#f9f9f9] tracking-[1px]`}
+                style={tw`text-sm font-medium px-2 py-3 border-b border-stone-600 text-white tracking-[1px]`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -99,7 +101,7 @@ function CreateTransaction() {
         </View>
         {/* //todo expense type */}
         <View style={tw``}>
-          <Text style={tw`font-medium text-sm tracking-wide py-2`}>
+          <Text style={tw`font-medium text-sm tracking-wide py-2 text-white`}>
             Expense Type
           </Text>
           <Controller
@@ -110,7 +112,7 @@ function CreateTransaction() {
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <TextInput
-                style={tw`text-sm rounded-lg font-medium px-2 py-3 bg-[#f9f9f9] tracking-[1px]`}
+                style={tw`text-sm font-medium px-2 py-3 border-b border-stone-600 text-white tracking-[1px]`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -122,7 +124,7 @@ function CreateTransaction() {
         </View>
 
         {/* //todo description */}
-        <Text style={tw`font-medium text-sm tracking-wide py-2`}>
+        <Text style={tw`font-medium text-sm tracking-wide py-2 text-white`}>
           Description
         </Text>
         <Controller
@@ -133,7 +135,7 @@ function CreateTransaction() {
           }}
           render={({field: {onChange, onBlur, value}}) => (
             <TextInput
-              style={tw`text-sm rounded-lg font-medium px-2 py-3 bg-[#f9f9f9] tracking-[1px]`}
+              style={tw`text-sm font-medium px-2 py-3 border-b border-stone-600 text-white tracking-[1px]`}
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
@@ -144,7 +146,7 @@ function CreateTransaction() {
           defaultValue=""
         />
         {/* //todo amount */}
-        <Text style={tw`font-medium text-sm tracking-wide py-2`}>
+        <Text style={tw`font-medium text-sm tracking-wide py-2 text-white`}>
           Total Amount
         </Text>
         <Controller
@@ -155,7 +157,7 @@ function CreateTransaction() {
           }}
           render={({field: {onChange, onBlur, value}}: any) => (
             <TextInput
-              style={tw`text-sm rounded-lg font-medium px-2 py-3 bg-[#f9f9f9] tracking-[1px]`}
+              style={tw`text-sm font-medium px-2 py-3 border-b border-stone-600 text-white tracking-[1px]`}
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
@@ -166,7 +168,7 @@ function CreateTransaction() {
         />
         {/* //todo category */}
         <View>
-          <Text style={tw`font-medium text-sm tracking-wide py-2`}>
+          <Text style={tw`font-medium text-sm tracking-wide py-2 text-white`}>
             Expense Category:
           </Text>
           <View style={tw`flex  flex-row flex-wrap gap-2 p-2`}>
@@ -177,14 +179,14 @@ function CreateTransaction() {
                   onPress={() => handleSelectCategory(items)}
                   style={tw`${
                     items?.name === selectedCategory
-                      ? `${items?.color}`
-                      : 'bg-stone-100'
-                  } rounded-full w-[80px] h-[80px] flex justify-center items-center`}>
+                      ? `${items?.bgColor}`
+                      : 'bg-stone-800'
+                  } rounded-full w-[60px] h-[60px] flex justify-center items-center`}>
                   <MaterialIcon
                     style={
                       items?.name === selectedCategory
                         ? {
-                            color: 'white',
+                            color: '#232323',
                             fontSize: 25,
                           }
                         : {color: 'gray', fontSize: 25}
@@ -200,13 +202,13 @@ function CreateTransaction() {
         <View style={tw`flex flex-row justify-end pt-4 gap-2`}>
           <TouchableOpacity
             onPress={handleBack}
-            style={tw`bg-stone-200 rounded p-3 flex-1`}>
-            <Text style={tw`text-center`}>Cancel</Text>
+            style={tw`bg-stone-800 rounded p-3 flex-1`}>
+            <Text style={tw`text-center text-white`}>Cancel</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={handleCreate}
-            style={tw`bg-[#232323] rounded p-3 flex-1`}>
-            <Text style={tw`text-center text-white`}>Create</Text>
+            style={tw`bg-[#DCFFB7] rounded p-3 flex-1`}>
+            <Text style={tw`text-center`}>Create</Text>
           </TouchableOpacity>
         </View>
       </View>

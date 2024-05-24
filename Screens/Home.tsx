@@ -12,6 +12,12 @@ function Home() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: '#0C0C0C',
+          padding: 3,
+          borderTopColor: 'black',
+          minHeight: 50,
+        },
       }}
       initialRouteName="Transaction">
       <Tab.Screen
@@ -20,7 +26,7 @@ function Home() {
           tabBarIcon: ({color, size}) => (
             <Icon name="cash" size={30} color={color} />
           ),
-          tabBarActiveTintColor: '#2b9b66',
+          tabBarActiveTintColor: '#DCFFB7',
           tabBarInactiveTintColor: 'gray',
           headerShown: false,
         }}
@@ -31,9 +37,9 @@ function Home() {
           tabBarIcon: ({color, size}) => (
             <Icon name="person" size={30} color={color} />
           ),
-          tabBarActiveTintColor: '#2b9b66',
+          tabBarActiveTintColor: '#DCFFB7',
           tabBarInactiveTintColor: 'gray',
-          headerShown: true,
+          headerShown: false,
         }}
         name="Account"
         component={Account}
@@ -43,7 +49,7 @@ function Home() {
           tabBarIcon: ({color, size}) => (
             <Icon name="stats-chart" size={30} color={color} />
           ),
-          tabBarActiveTintColor: '#2b9b66',
+          tabBarActiveTintColor: '#DCFFB7',
           tabBarInactiveTintColor: 'gray',
         }}
         name="Analytics"

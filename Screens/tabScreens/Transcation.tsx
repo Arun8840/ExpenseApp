@@ -24,24 +24,24 @@ function Transaction() {
 
   return (
     <>
-      <ScrollView alwaysBounceVertical style={tw`bg-[#FFFBF5]`}>
+      <ScrollView alwaysBounceVertical style={tw`bg-[#0C0C0C]`}>
         {/* //todo top header */}
         <View style={tw`flex flex-row items-center justify-between px-3 py-5 `}>
-          <Icon name="menu" size={25} style={tw`text-stone-500`} />
-          <Text style={tw`text-center  text-stone-600`}>Friday, 12 May</Text>
+          <Icon name="menu" size={25} style={tw`text-[#DCFFB7]`} />
+          <Text style={tw`text-center  text-[#DCFFB7]`}>Friday, 12 May</Text>
           <TouchableOpacity onPress={handleRedirect}>
-            <Icon name="settings" size={25} style={tw`text-stone-500`} />
+            <Icon name="settings" size={25} style={tw`text-[#DCFFB7]`} />
           </TouchableOpacity>
         </View>
 
         {/* //todo card */}
         <View style={tw` px-1 py-1  flex-1`}>
           <View
-            style={tw`bg-[#232323] flex  flex-1  rounded-2xl p-3 shadow-lg h-[200px]`}>
+            style={tw`bg-[#F97300] flex  flex-1  rounded-xl p-3 shadow-lg h-[200px]`}>
             <View style={tw`flex flex-row justify-between items-center`}>
               <MaterialIcon
                 name="integrated-circuit-chip"
-                style={tw`text-yellow-500`}
+                style={tw`text-[#DCFFB7]`}
                 size={30}
               />
               <Text style={tw`text-white font-bold italic pr-2`}>VISA</Text>
@@ -69,13 +69,13 @@ function Transaction() {
               return (
                 <View
                   key={CategorysTypes?.id}
-                  style={tw`w-[160px] h-[100px] rounded-2xl shadow-md p-2 bg-white mx-1 ${CategorysTypes?.color}`}>
+                  style={tw`w-[160px] h-[100px] rounded-lg shadow-md p-2 bg-white mx-1 bg-[#232323]`}>
                   <View style={tw`flex flex-row items-center`}>
                     <View
-                      style={tw`bg-white flex justify-center items-center h-[30px] w-[30px] rounded-lg`}>
+                      style={tw`flex justify-center items-center h-[30px] w-[30px] rounded-lg`}>
                       <MaterialIcon
                         name={CategorysTypes?.icon}
-                        style={tw`text-lg text-stone-600`}
+                        style={tw`text-lg ${CategorysTypes?.color} `}
                       />
                     </View>
                     <Text style={tw`flex-1 px-2 text-white`}>
@@ -94,19 +94,18 @@ function Transaction() {
 
         {/* //todo header and create button */}
         <View style={tw`flex flex-row justify-between items-center py-3 px-3 `}>
-          <Text style={tw`text-lg font-medium tracking-wide  text-[#232323]`}>
+          <Text style={tw`text-lg font-medium tracking-wide  text-white`}>
             Recent Transaction
           </Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('Create Transaction')}
-            style={tw`py-2 px-2 rounded bg-[#232323]`}>
-            <Text style={tw`text-white`}>
-              <Icon name="add" size={20} />
-            </Text>
+            style={tw`py-2 px-2 rounded bg-[#DCFFB7] flex flex-row items-center gap-2`}>
+            <Text>Add</Text>
+            <Icon name="add" size={20} />
           </TouchableOpacity>
         </View>
         {/* //todo lists */}
-        <View style={tw``}>
+        <View style={tw`px-2`}>
           {transactionList?.map((lists, index) => {
             return <ListItems key={index} lists={lists} index={index} />;
           })}

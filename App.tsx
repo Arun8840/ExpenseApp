@@ -7,12 +7,13 @@ import Home from './Screens/Home';
 import TransactionDetails from './Screens/TransactionDetails';
 import Settings from './Screens/Settings';
 import CreateTransaction from './Components/CreateTransaction';
+import tw from 'twrnc';
 const Stack = createNativeStackNavigator();
 
 const App = (): JSX.Element => {
   return (
-    <NavigationContainer>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={tw`flex-1 bg-[#0C0C0C]`}>
+      <NavigationContainer>
         <Stack.Navigator initialRouteName="welcome">
           <Stack.Screen
             options={{headerShown: false}}
@@ -25,7 +26,16 @@ const App = (): JSX.Element => {
             component={Home}
           />
           <Stack.Screen
-            options={{headerShown: true}}
+            options={{
+              headerShown: true,
+              presentation: 'modal',
+              headerStyle: {
+                backgroundColor: '#DCFFB7',
+              },
+              headerTitleStyle: {
+                color: '#0c0c0c',
+              },
+            }}
             name="Transaction Details"
             component={TransactionDetails}
           />
@@ -35,20 +45,23 @@ const App = (): JSX.Element => {
             component={Settings}
           />
           <Stack.Screen
-            options={{headerShown: true, presentation: 'modal'}}
+            options={{
+              headerShown: true,
+              presentation: 'modal',
+              headerStyle: {
+                backgroundColor: '#DCFFB7',
+              },
+              headerTitleStyle: {
+                color: '#0c0c0c',
+              },
+            }}
             name="Create Transaction"
             component={CreateTransaction}
           />
         </Stack.Navigator>
-      </SafeAreaView>
-    </NavigationContainer>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
