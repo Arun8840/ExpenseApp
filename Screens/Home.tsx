@@ -1,11 +1,10 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Transaction from './tabScreens/Transcation';
 import Account from './tabScreens/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Analytics from './tabScreens/Analytics';
+import Settings from '../Screens/Settings';
 const Tab = createBottomTabNavigator();
 function Home() {
   return (
@@ -19,12 +18,12 @@ function Home() {
           minHeight: 50,
         },
       }}
-      initialRouteName="Transaction">
+      initialRouteName="Home">
       <Tab.Screen
-        name="Transaction"
+        name="Home"
         options={{
           tabBarIcon: ({color, size}) => (
-            <Icon name="cash" size={30} color={color} />
+            <Icon name="home" size={30} color={color} />
           ),
           tabBarActiveTintColor: '#DCFFB7',
           tabBarInactiveTintColor: 'gray',
@@ -54,6 +53,17 @@ function Home() {
         }}
         name="Analytics"
         component={Analytics}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Icon name="settings" size={30} color={color} />
+          ),
+          tabBarActiveTintColor: '#DCFFB7',
+          tabBarInactiveTintColor: 'gray',
+        }}
+        name="Settings"
+        component={Settings}
       />
     </Tab.Navigator>
   );

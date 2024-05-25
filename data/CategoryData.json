@@ -52,5 +52,14 @@
     "bgColor": "bg-[#A0153E]",
     "color": "text-[#A0153E]",
     "icon": "cards-heart"
+  },
+  {
+    "id": 7,
+    "name": "Food",
+    "description": "food",
+    "monthlyBudget": 1200,
+    "bgColor": "bg-[#EE5A5A]",
+    "color": "text-[#EE5A5A]",
+    "icon": "food-turkey"
   }
 ]

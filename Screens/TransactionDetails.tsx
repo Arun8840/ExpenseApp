@@ -1,7 +1,8 @@
 import {useNavigation, useRoute} from '@react-navigation/native';
 import React from 'react';
 import {
-  SafeAreaView,
+  Alert,
+  Button,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -9,14 +10,40 @@ import {
 } from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 import tw from 'twrnc';
+import StoreTransaction from '../Store/StoreTransaction';
+import useGetTheme from '../Utility/Theme';
 function TransactionDetails() {
   const route = useRoute();
   const navigate = useNavigation();
   const {paramValue}: any = route.params;
+  const {colormain} = useGetTheme();
+  const deleteItem = StoreTransaction(state => state?.delete_Transaction);
+  // ! delete expense
+  const handleDelete = () => {
+    Alert.alert(
+      'Confirm Action',
+      `Are you sure you want to delete ${paramValue?.title} ?`,
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => {
+            deleteItem(paramValue);
+            navigate.goBack();
+          },
+        },
+      ],
+      {cancelable: false},
+    );
+  };
   return (
     <View style={tw`p-2 flex-1 bg-[#0c0c0c]`}>
       <View
-        style={tw`rounded-lg min-h-[300px] bg-black flex justify-center items-center`}>
+        style={tw`rounded-lg min-h-[300px] bg-stone-800 flex justify-center items-center`}>
         <Icons name={paramValue?.icon} size={50} style={tw`text-stone-400`} />
       </View>
       <ScrollView horizontal style={tw`py-2 max-h-[70px]`}>
@@ -29,11 +56,14 @@ function TransactionDetails() {
         })}
       </ScrollView>
       <View style={tw`px-2`}>
-        <View style={tw`flex flex-row items-center gap-2`}>
-          <Text style={tw`text-lg text-white tracking-wide`}>Expense :</Text>
-          <Text style={tw`text-lg text-white tracking-wide font-semibold`}>
-            {paramValue?.title}
-          </Text>
+        <View style={tw`flex flex-row justify-between`}>
+          <View style={tw`flex flex-row items-center gap-2`}>
+            <Text style={tw`text-lg text-white tracking-wide`}>Expense :</Text>
+            <Text style={tw`text-lg text-white tracking-wide font-semibold`}>
+              {paramValue?.title}
+            </Text>
+          </View>
+          <Button title="Edit" color={colormain} />
         </View>
         <View style={tw`flex flex-row items-center gap-2 py-2`}>
           <Text style={tw`text-white`}>Payment type :</Text>
@@ -76,7 +106,9 @@ function TransactionDetails() {
               Cancel
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={tw`bg-red-500 flex-1 rounded-lg p-3`}>
+          <TouchableOpacity
+            onPress={handleDelete}
+            style={tw`bg-red-500 flex-1 rounded-lg p-3`}>
             <Text
               style={tw`text-center text-white font-medium text-sm tracking-wide`}>
               Delete Expense

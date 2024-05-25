@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {Button, SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Welcome from './Screens/Welcome';
@@ -8,9 +8,12 @@ import TransactionDetails from './Screens/TransactionDetails';
 import Settings from './Screens/Settings';
 import CreateTransaction from './Components/CreateTransaction';
 import tw from 'twrnc';
+import useGetTheme from './Utility/Theme';
 const Stack = createNativeStackNavigator();
 
 const App = (): JSX.Element => {
+  const {colormain} = useGetTheme();
+
   return (
     <SafeAreaView style={tw`flex-1 bg-[#0C0C0C]`}>
       <NavigationContainer>
@@ -22,19 +25,20 @@ const App = (): JSX.Element => {
           />
           <Stack.Screen
             options={{headerShown: false}}
-            name="Home"
+            name="dashboard"
             component={Home}
           />
           <Stack.Screen
             options={{
               headerShown: true,
-              presentation: 'modal',
               headerStyle: {
-                backgroundColor: '#DCFFB7',
+                backgroundColor: '#000000',
               },
               headerTitleStyle: {
-                color: '#0c0c0c',
+                color: 'white',
               },
+              headerTintColor: colormain,
+              headerBackTitle: 'Back',
             }}
             name="Transaction Details"
             component={TransactionDetails}
@@ -47,12 +51,9 @@ const App = (): JSX.Element => {
           <Stack.Screen
             options={{
               headerShown: true,
-              presentation: 'modal',
+              presentation: 'formSheet',
               headerStyle: {
-                backgroundColor: '#DCFFB7',
-              },
-              headerTitleStyle: {
-                color: '#0c0c0c',
+                backgroundColor: colormain,
               },
             }}
             name="Create Transaction"

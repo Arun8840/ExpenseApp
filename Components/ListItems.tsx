@@ -5,6 +5,7 @@ import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import tw from 'twrnc';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import useGetTheme from '../Utility/Theme';
 interface PropsTypes {
   index: number;
   lists: any;
@@ -15,6 +16,7 @@ function ListItems({lists, index}: PropsTypes) {
   const handleRedirect = () => {
     navigation.navigate('Transaction Details', {paramValue: lists});
   };
+  const {mainTheme} = useGetTheme();
   return (
     <TouchableOpacity onPress={handleRedirect}>
       <View
@@ -23,7 +25,7 @@ function ListItems({lists, index}: PropsTypes) {
         <View style={tw`rounded-full p-4`}>
           <MaterialIcon
             name={lists?.icon}
-            style={tw`text-[#DCFFB7]`}
+            style={tw`${mainTheme?.textPrimary}`}
             size={20}
           />
         </View>
