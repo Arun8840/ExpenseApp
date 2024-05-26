@@ -9,6 +9,8 @@ import Settings from './Screens/Settings';
 import CreateTransaction from './Components/CreateTransaction';
 import tw from 'twrnc';
 import useGetTheme from './Utility/Theme';
+import FilterExpenses from './Screens/FilterExpenses';
+import CreateCategory from './Components/CreateCategory';
 const Stack = createNativeStackNavigator();
 
 const App = (): JSX.Element => {
@@ -51,6 +53,21 @@ const App = (): JSX.Element => {
           <Stack.Screen
             options={{
               headerShown: true,
+              headerStyle: {
+                backgroundColor: '#000000',
+              },
+              headerTitleStyle: {
+                color: 'white',
+              },
+              headerTintColor: colormain,
+              headerBackTitle: 'Back',
+            }}
+            name="Transactions"
+            component={FilterExpenses}
+          />
+          <Stack.Screen
+            options={{
+              headerShown: true,
               presentation: 'formSheet',
               headerStyle: {
                 backgroundColor: colormain,
@@ -58,6 +75,17 @@ const App = (): JSX.Element => {
             }}
             name="Create Transaction"
             component={CreateTransaction}
+          />
+          <Stack.Screen
+            options={{
+              headerShown: true,
+              presentation: 'formSheet',
+              headerStyle: {
+                backgroundColor: colormain,
+              },
+            }}
+            name="Create Category"
+            component={CreateCategory}
           />
         </Stack.Navigator>
       </NavigationContainer>

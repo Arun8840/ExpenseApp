@@ -46,15 +46,7 @@ function TransactionDetails() {
         style={tw`rounded-lg min-h-[300px] bg-stone-800 flex justify-center items-center`}>
         <Icons name={paramValue?.icon} size={50} style={tw`text-stone-400`} />
       </View>
-      <ScrollView horizontal style={tw`py-2 max-h-[70px]`}>
-        {Array.from({length: 5}, (_, index) => {
-          return (
-            <View
-              key={index}
-              style={tw`bg-stone-800 rounded-lg p-1 w-[50px] h-[50px] mx-1`}></View>
-          );
-        })}
-      </ScrollView>
+
       <View style={tw`px-2`}>
         <View style={tw`flex flex-row justify-between`}>
           <View style={tw`flex flex-row items-center gap-2`}>
@@ -71,16 +63,16 @@ function TransactionDetails() {
             <Text style={tw` text-white capitalize`}>
               {paramValue?.paymentType}
             </Text>
-            <Icons
-              name={paramValue?.paymentType}
-              size={20}
-              style={tw`text-stone-500`}
-            />
           </View>
         </View>
         <View style={tw`flex flex-row items-center gap-2 py-2`}>
           <Text style={tw`text-white`}>Date :</Text>
           <Text style={tw` text-white`}>{paramValue?.date}</Text>
+        </View>
+
+        <View style={tw`flex flex-row items-center gap-2 py-2`}>
+          <Text style={tw`text-white`}>Expense category :</Text>
+          <Text style={tw` text-white`}>{paramValue?.expenseCategory}</Text>
         </View>
         <View style={tw`flex flex-row items-center gap-2 py-2`}>
           <Text style={tw`text-white`}>Amount :</Text>

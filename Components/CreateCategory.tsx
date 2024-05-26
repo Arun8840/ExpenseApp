@@ -24,7 +24,7 @@ interface FormTypes {
   icon?: string;
   date?: string;
 }
-function CreateTransaction() {
+function CreateCategory() {
   const CreateTransaction = StoreTransaction(
     (state: any) => state?.create_Transaction,
   );
@@ -229,4 +229,4 @@ function CreateTransaction() {
   );
 }
 
-export default CreateTransaction;
+export default CreateCategory;

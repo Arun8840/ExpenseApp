@@ -1,70 +1,32 @@
-import {create} from 'zustand';
-import {TransactionTypes} from './Models/TransactionTypes';
+import {create, useStore} from 'zustand';
+import {CategoryTypes, TransactionTypes} from './Models/TransactionTypes';
+import Categorys from '../data/CategoryData.json';
 
 interface StateType {
   transactions: TransactionTypes[];
+  CategoryData: CategoryTypes[];
   create_Transaction: (item: TransactionTypes) => void;
   delete_Transaction: (item: TransactionTypes) => void;
 }
 
-let expenseData: TransactionTypes[] = [
-  {
-    id: 1,
-    title: 'Food',
-    paymentType: 'card',
-    date: 'Friday, 12 May',
-    icon: 'food-turkey',
-    description: '',
-    image: '',
-    totalAmount: 300,
-  },
-  {
-    id: 2,
-    title: 'Transportation',
-    paymentType: 'cash',
-    date: 'Saturday, 13 May',
-    icon: 'car-side',
-    description: '',
-    image: '',
-    totalAmount: 150,
-  },
-  {
-    id: 3,
-    title: 'Entertainment',
-    paymentType: 'card',
-    date: 'Sunday, 14 May',
-    icon: 'movie-open',
-    description: '',
-    image: '',
-    totalAmount: 200,
-  },
-  {
-    id: 4,
-    title: 'Shopping',
-    paymentType: 'card',
-    date: 'Monday, 15 May',
-    icon: 'shopping',
-    description: '',
-    image: '',
-    totalAmount: 400,
-  },
-  {
-    id: 5,
-    title: 'Utilities',
-    paymentType: 'cash',
-    date: 'Tuesday, 16 May',
-    icon: 'van-utility',
-    description: '',
-    image: '',
-    totalAmount: 250,
-  },
-];
-const StoreTransaction = create<StateType>(set => ({
-  transactions: expenseData,
-
+const StoreTransaction = create<StateType>((set, get) => ({
+  transactions: [],
+  CategoryData: Categorys,
   // create new transaction
   create_Transaction: (newItem: TransactionTypes) => {
     set(state => ({transactions: [...state?.transactions, newItem]}));
+    set(state => ({
+      CategoryData: state?.CategoryData?.map(oldValue => {
+        if (oldValue?.name === newItem?.expenseCategory) {
+          return {
+            ...oldValue,
+            useage: (oldValue.useage ?? 0) + 1,
+            totalAmount: [...oldValue?.totalAmount, newItem?.totalAmount],
+          };
+        }
+        return oldValue;
+      }),
+    }));
   },
   // !delete transaction
   delete_Transaction: (deleteItem: TransactionTypes) => {

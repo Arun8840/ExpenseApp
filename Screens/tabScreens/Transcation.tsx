@@ -13,7 +13,6 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import tw from 'twrnc';
 import ListItems from '../../Components/ListItems';
 import {useNavigation} from '@react-navigation/native';
-import Categorys from '../../data/CategoryData.json';
 import StoreTransaction from '../../Store/StoreTransaction';
 import useGetTheme from '../../Utility/Theme';
 function Transaction() {
@@ -67,39 +66,6 @@ function Transaction() {
               Arun Prakash
             </Text>
           </View>
-        </View>
-
-        {/* //todo total spends */}
-        <View style={tw`flex-1`}>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={tw`py-1 `}>
-            {Categorys?.map(CategorysTypes => {
-              return (
-                <View
-                  key={CategorysTypes?.id}
-                  style={tw`w-[160px] h-[100px] rounded-lg shadow-md p-2 bg-white mx-1 bg-stone-800/50`}>
-                  <View style={tw`flex flex-row items-center`}>
-                    <View
-                      style={tw`flex justify-center items-center h-[30px] w-[30px] rounded-lg`}>
-                      <MaterialIcon
-                        name={CategorysTypes?.icon}
-                        style={tw`text-lg ${CategorysTypes?.color} `}
-                      />
-                    </View>
-                    <Text style={tw`flex-1 px-2 text-white`}>
-                      {CategorysTypes?.name}
-                    </Text>
-                  </View>
-                  <Text
-                    style={tw`text-[30px] text-center text-white font-bold px-2 py-3`}>
-                    20%
-                  </Text>
-                </View>
-              );
-            })}
-          </ScrollView>
         </View>
 
         {/* //todo header and create button */}

@@ -6,6 +6,8 @@
     "monthlyBudget": 300,
     "bgColor": "bg-[#FD841F]",
     "color": "text-[#FD841F]",
+    "useage": 0,
+    "totalAmount": [],
     "icon": "cart"
   },
   {
@@ -15,6 +17,8 @@
     "monthlyBudget": 1200,
     "bgColor": "bg-[#DCFFB7]",
     "color": "text-[#DCFFB7]",
+    "useage": 0,
+    "totalAmount": [],
     "icon": "home-city"
   },
   {
@@ -24,6 +28,8 @@
     "monthlyBudget": 150,
     "bgColor": "bg-[#3cbd7e]",
     "color": "text-[#3cbd7e]",
+    "useage": 0,
+    "totalAmount": [],
     "icon": "van-utility"
   },
   {
@@ -33,6 +39,8 @@
     "monthlyBudget": 200,
     "bgColor": "bg-[#57A6A1]",
     "color": "text-[#57A6A1]",
+    "useage": 0,
+    "totalAmount": [],
     "icon": "car-side"
   },
   {
@@ -42,6 +50,8 @@
     "monthlyBudget": 100,
     "bgColor": "bg-[#FF69B4]",
     "color": "text-[#FF69B4]",
+    "useage": 0,
+    "totalAmount": [],
     "icon": "movie-open"
   },
   {
@@ -51,6 +61,8 @@
     "monthlyBudget": 150,
     "bgColor": "bg-[#A0153E]",
     "color": "text-[#A0153E]",
+    "useage": 0,
+    "totalAmount": [],
     "icon": "cards-heart"
   },
   {
@@ -60,6 +72,8 @@
     "monthlyBudget": 1200,
     "bgColor": "bg-[#EE5A5A]",
     "color": "text-[#EE5A5A]",
+    "useage": 0,
+    "totalAmount": [],
     "icon": "food-turkey"
   }
 ]

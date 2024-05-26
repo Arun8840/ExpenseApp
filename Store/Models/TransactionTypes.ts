@@ -7,4 +7,17 @@ export interface TransactionTypes {
   icon?: string;
   image: string;
   description: string;
+  expenseCategory: string;
+}
+
+export interface CategoryTypes {
+  id: number | string;
+  name: string;
+  description: string;
+  monthlyBudget: number;
+  bgColor: string;
+  color: string;
+  icon: string;
+  useage?: number;
+  totalAmount: number[];
 }

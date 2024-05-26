@@ -51,7 +51,7 @@ function Home() {
           tabBarActiveTintColor: '#DCFFB7',
           tabBarInactiveTintColor: 'gray',
         }}
-        name="Analytics"
+        name="Categories"
         component={Analytics}
       />
       <Tab.Screen
