@@ -14,7 +14,8 @@ function FilterExpenses() {
   let filteredData = allTransactions?.filter(
     allValues => allValues?.expenseCategory === type,
   );
-  let amount = filteredData?.map(values => values?.totalAmount);
+  let amount = (filteredData?.length > 0 &&
+    filteredData?.map(values => values?.totalAmount)) || [0];
 
   let totalAmount = amount?.reduce((acc, curr) => acc + curr);
   return (

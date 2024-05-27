@@ -1,12 +1,62 @@
 [
-  {"color": "bg-[#FF5733]", "name": "Sunset", "id": "1"},
-  {"color": "bg-[#481E14]", "name": "Emerald", "id": "2"},
-  {"color": "bg-[#3357FF]", "name": "Ocean", "id": "3"},
-  {"color": "bg-[#240750]", "name": "Blossom", "id": "4"},
-  {"color": "bg-[#78A083]", "name": "Tangerine", "id": "5"},
-  {"color": "bg-[#8C33FF]", "name": "Lavender", "id": "6"},
-  {"color": "bg-[#A91D3A]", "name": "Aqua", "id": "7"},
-  {"color": "bg-[#03AED2]", "name": "Sunflower", "id": "8"},
-  {"color": "bg-[#FF3333]", "name": "Crimson", "id": "9"},
-  {"color": "bg-[#3333FF]", "name": "Sapphire", "id": "10"}
+  {
+    "color": "bg-[#FF5733]",
+    "textColor": "text-[#FF5733]",
+    "name": "Sunset",
+    "id": "1"
+  },
+  {
+    "color": "bg-[#481E14]",
+    "textColor": "text-[#481E14]",
+    "name": "Emerald",
+    "id": "2"
+  },
+  {
+    "color": "bg-[#3357FF]",
+    "textColor": "text-[#3357FF]",
+    "name": "Ocean",
+    "id": "3"
+  },
+  {
+    "color": "bg-[#240750]",
+    "textColor": "text-[#240750]",
+    "name": "Blossom",
+    "id": "4"
+  },
+  {
+    "color": "bg-[#78A083]",
+    "textColor": "text-[#78A083]",
+    "name": "Tangerine",
+    "id": "5"
+  },
+  {
+    "color": "bg-[#8C33FF]",
+    "textColor": "text-[#8C33FF]",
+    "name": "Lavender",
+    "id": "6"
+  },
+  {
+    "color": "bg-[#A91D3A]",
+    "textColor": "text-[#A91D3A]",
+    "name": "Aqua",
+    "id": "7"
+  },
+  {
+    "color": "bg-[#03AED2]",
+    "textColor": "text-[#03AED2]",
+    "name": "Sunflower",
+    "id": "8"
+  },
+  {
+    "color": "bg-[#FF3333]",
+    "textColor": "text-[#FF3333]",
+    "name": "Crimson",
+    "id": "9"
+  },
+  {
+    "color": "bg-[#3333FF]",
+    "textColor": "text-[#3333FF]",
+    "name": "Sapphire",
+    "id": "10"
+  }
 ]

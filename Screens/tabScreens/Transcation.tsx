@@ -91,7 +91,6 @@ function Transaction() {
           ) : (
             <View
               style={tw`flex-1 min-h-[250px] flex justify-center items-center`}>
-              <Icon name="card" style={tw`text-gray-500`} size={40} />
               <Text style={tw`text-gray-500 p-2 text-xs tracking-wide`}>
                 No Transaction Found
               </Text>

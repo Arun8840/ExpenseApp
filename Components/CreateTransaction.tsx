@@ -9,7 +9,6 @@ import {
 import tw from 'twrnc';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
-import categories from '../data/CategoryData.json';
 import {Controller, useForm} from 'react-hook-form';
 import StoreTransaction from '../Store/StoreTransaction';
 import useGetTheme from '../Utility/Theme';
@@ -26,8 +25,9 @@ interface FormTypes {
 }
 function CreateTransaction() {
   const CreateTransaction = StoreTransaction(
-    (state: any) => state?.create_Transaction,
+    state => state?.create_Transaction,
   );
+  const CategoryData = StoreTransaction(state => state?.CategoryData);
   // todo theme
   const {mainTheme} = useGetTheme();
   const getCurrentDate = () => {
@@ -185,7 +185,7 @@ function CreateTransaction() {
             Category:
           </Text>
           <View style={tw`flex  flex-row flex-wrap gap-2 p-2`}>
-            {categories?.map(items => {
+            {CategoryData?.map(items => {
               return (
                 <TouchableOpacity
                   key={items?.id}

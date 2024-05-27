@@ -11,7 +11,7 @@ export interface TransactionTypes {
 }
 
 export interface CategoryTypes {
-  id: number | string;
+  id: any;
   name: string;
   description: string;
   monthlyBudget: number;

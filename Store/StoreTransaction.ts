@@ -6,6 +6,7 @@ interface StateType {
   transactions: TransactionTypes[];
   CategoryData: CategoryTypes[];
   create_Transaction: (item: TransactionTypes) => void;
+  create_Category: (item: CategoryTypes) => void;
   delete_Transaction: (item: TransactionTypes) => void;
 }
 
@@ -27,6 +28,10 @@ const StoreTransaction = create<StateType>((set, get) => ({
         return oldValue;
       }),
     }));
+  },
+
+  create_Category: (newItem: CategoryTypes) => {
+    set(state => ({CategoryData: [...state?.CategoryData, newItem]}));
   },
   // !delete transaction
   delete_Transaction: (deleteItem: TransactionTypes) => {
