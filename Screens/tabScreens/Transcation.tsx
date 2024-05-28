@@ -34,11 +34,12 @@ function Transaction() {
           <Text style={tw`text-center  ${mainTheme?.textPrimary}`}>
             Friday, 12 May
           </Text>
-          <TouchableOpacity onPress={handleRedirect}>
-            <Icon
-              name="settings"
-              size={25}
-              style={tw`${mainTheme?.textPrimary}`}
+          <TouchableOpacity
+            onPress={handleRedirect}
+            style={tw`rounded-full w-[40px] h-[40px] overflow-hidden`}>
+            <Image
+              source={require('../../images/profile.png')}
+              style={tw`w-full h-full rounded-full`}
             />
           </TouchableOpacity>
         </View>
