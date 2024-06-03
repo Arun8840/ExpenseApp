@@ -12,6 +12,7 @@ import useGetTheme from './Utility/Theme';
 import FilterExpenses from './Screens/FilterExpenses';
 import CreateCategory from './Components/CreateCategory';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import UpdateTransaction from './Components/UpdateTransaction';
 const Stack = createNativeStackNavigator();
 
 const App = (): JSX.Element => {
@@ -77,6 +78,17 @@ const App = (): JSX.Element => {
               }}
               name="Create Transaction"
               component={CreateTransaction}
+            />
+            <Stack.Screen
+              options={{
+                headerShown: true,
+                presentation: 'formSheet',
+                headerStyle: {
+                  backgroundColor: colormain,
+                },
+              }}
+              name="Edit Transaction"
+              component={UpdateTransaction}
             />
             <Stack.Screen
               options={{

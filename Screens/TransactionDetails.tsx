@@ -14,7 +14,7 @@ import StoreTransaction from '../Store/StoreTransaction';
 import useGetTheme from '../Utility/Theme';
 function TransactionDetails() {
   const route = useRoute();
-  const navigate = useNavigation();
+  const navigation: any = useNavigation();
   const {paramValue}: any = route.params;
   const {colormain} = useGetTheme();
   const deleteItem = StoreTransaction(state => state?.delete_Transaction);
@@ -33,12 +33,17 @@ function TransactionDetails() {
           style: 'destructive',
           onPress: () => {
             deleteItem(paramValue);
-            navigate.goBack();
+            navigation.goBack();
           },
         },
       ],
       {cancelable: false},
     );
+  };
+
+  // todo redirect to update page
+  const handleRedirect_Update = () => {
+    navigation?.navigate('Edit Transaction', {values: paramValue});
   };
   return (
     <View style={tw`p-2 flex-1 bg-[#0c0c0c]`}>
@@ -55,7 +60,11 @@ function TransactionDetails() {
               {paramValue?.title}
             </Text>
           </View>
-          <Button title="Edit" color={colormain} />
+          <Button
+            onPress={handleRedirect_Update}
+            title="Edit"
+            color={colormain}
+          />
         </View>
         <View style={tw`flex flex-row items-center gap-2 py-2`}>
           <Text style={tw`text-white`}>Payment type :</Text>
@@ -91,7 +100,7 @@ function TransactionDetails() {
         </View>
         <View style={tw`flex flex-row justify-center gap-2`}>
           <TouchableOpacity
-            onPress={() => navigate.goBack()}
+            onPress={() => navigation.goBack()}
             style={tw`bg-gray-500/50 flex-1 rounded-lg p-3`}>
             <Text
               style={tw`text-center text-white font-medium text-sm tracking-wide`}>

@@ -1,4 +1,4 @@
-import {create, useStore} from 'zustand';
+import {create} from 'zustand';
 import {CategoryTypes, TransactionTypes} from './Models/TransactionTypes';
 import Categorys from '../data/CategoryData.json';
 
@@ -8,6 +8,7 @@ interface StateType {
   create_Transaction: (item: TransactionTypes) => void;
   create_Category: (item: CategoryTypes) => void;
   delete_Transaction: (item: TransactionTypes) => void;
+  update_Transaction: (item: TransactionTypes) => void;
 }
 
 const StoreTransaction = create<StateType>((set, get) => ({
@@ -28,6 +29,16 @@ const StoreTransaction = create<StateType>((set, get) => ({
         return oldValue;
       }),
     }));
+  },
+  update_Transaction: (newItem: TransactionTypes) => {
+    let storeData = get();
+    let updatedValue = storeData?.transactions?.map(oldValues => {
+      if (oldValues?.id === newItem?.id) {
+        return newItem;
+      }
+      return oldValues;
+    });
+    set(state => ({...state, transactions: updatedValue}));
   },
 
   create_Category: (newItem: CategoryTypes) => {

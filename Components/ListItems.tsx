@@ -4,7 +4,8 @@ import {Text, TouchableOpacity} from 'react-native';
 import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import tw from 'twrnc';
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
+import MatrialIcon from 'react-native-vector-icons/MaterialIcons';
 import useGetTheme from '../Utility/Theme';
 import {Swipeable} from 'react-native-gesture-handler';
 import StoreTransaction from '../Store/StoreTransaction';
@@ -23,21 +24,35 @@ function ListItems({lists, index}: PropsTypes) {
   const handleDelete = () => {
     deleteItem(lists);
   };
+  const handleEdit = () => {
+    navigation?.navigate('Edit Transaction', {values: lists});
+  };
+
+  // todo delete and edit intraction buttons
   const renderRightActions = () => (
     <TouchableOpacity
       style={tw`bg-red-500 px-6 flex justify-center items-center`}
       onPress={handleDelete}>
-      <MaterialIcon name="delete" style={tw`text-white text-2xl`} />
+      <MaterialIconCommunity name="delete" style={tw`text-white text-2xl`} />
+    </TouchableOpacity>
+  );
+  const renderLeftActions = () => (
+    <TouchableOpacity
+      style={tw`bg-blue-500 px-6 flex justify-center items-center`}
+      onPress={handleEdit}>
+      <MatrialIcon name="mode-edit" style={tw`text-white text-2xl`} />
     </TouchableOpacity>
   );
   return (
-    <Swipeable renderRightActions={renderRightActions}>
-      <TouchableOpacity onPress={handleRedirect}>
+    <Swipeable
+      renderLeftActions={renderLeftActions}
+      renderRightActions={renderRightActions}>
+      <TouchableOpacity onPress={handleRedirect} style={tw`bg-[#0c0c0c]`}>
         <View
           key={index}
           style={tw` p-2 border-b border-stone-800 rounded flex flex-row items-center gap-4`}>
           <View style={tw`rounded-full p-4 ${mainTheme?.primary}`}>
-            <MaterialIcon
+            <MaterialIconCommunity
               name={lists?.icon}
               style={tw`text-[#0c0c0c]`}
               size={20}
