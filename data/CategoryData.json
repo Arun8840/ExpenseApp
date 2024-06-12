@@ -8,6 +8,7 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
+    "budget": 0,
     "icon": "cart"
   },
   {
@@ -19,6 +20,7 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
+    "budget": 0,
     "icon": "home-city"
   },
   {
@@ -30,6 +32,7 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
+    "budget": 0,
     "icon": "van-utility"
   },
   {
@@ -41,6 +44,7 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
+    "budget": 0,
     "icon": "car-side"
   },
   {
@@ -52,6 +56,7 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
+    "budget": 0,
     "icon": "movie-open"
   },
   {
@@ -63,6 +68,7 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
+    "budget": 0,
     "icon": "cards-heart"
   },
   {
@@ -74,6 +80,7 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
+    "budget": 0,
     "icon": "food-turkey"
   }
 ]

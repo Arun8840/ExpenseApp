@@ -2,7 +2,6 @@ import React, {useCallback} from 'react';
 import {
   Button,
   Image,
-  SafeAreaView,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -67,8 +66,7 @@ function Transaction() {
       <ScrollView alwaysBounceVertical style={tw`bg-[#0C0C0C]`}>
         {/* //todo top header */}
         <View style={tw`flex flex-row items-center justify-between px-3 py-5 `}>
-          <Icon name="menu" size={25} style={tw`${mainTheme?.textPrimary}`} />
-          <Text style={tw`text-center  ${mainTheme?.textPrimary}`}>
+          <Text style={tw`text-center   ${mainTheme?.textPrimary}`}>
             Friday, 12 May
           </Text>
           <TouchableOpacity

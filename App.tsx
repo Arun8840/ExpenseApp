@@ -13,8 +13,9 @@ import FilterExpenses from './Screens/FilterExpenses';
 import CreateCategory from './Components/CreateCategory';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import UpdateTransaction from './Components/UpdateTransaction';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import BudgetEdit from './Components/BudgetEdit';
 const Stack = createNativeStackNavigator();
-
 const App = (): JSX.Element => {
   const {colormain} = useGetTheme();
 
@@ -100,6 +101,18 @@ const App = (): JSX.Element => {
               }}
               name="Create Category"
               component={CreateCategory}
+            />
+
+            <Stack.Screen
+              options={{
+                headerShown: true,
+                presentation: 'formSheet',
+                headerStyle: {
+                  backgroundColor: colormain,
+                },
+              }}
+              name="Set Budget"
+              component={BudgetEdit}
             />
           </Stack.Navigator>
         </NavigationContainer>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {
   Image,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -18,13 +19,14 @@ function Welcome() {
   const handleNavigate = () => {
     navigation.navigate('dashboard');
   };
+
   return (
     <View style={tw`bg-[#0c0c0c] flex flex-col justify-between flex-1`}>
       <View style={tw`flex flex-1 gap-2`}>
         <View style={tw`w-full flex-1`}>
           <Image
             style={tw`w-full h-full`}
-            source={require('../images/welcomeBanner.png')}
+            source={require('../images/Banner-Coins.png')}
           />
         </View>
         <View style={tw` flex flex-col justify-center items-center`}>

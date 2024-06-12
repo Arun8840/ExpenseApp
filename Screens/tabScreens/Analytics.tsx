@@ -59,7 +59,6 @@ function Analytics() {
         <View style={tw`flex flex-row flex-wrap gap-3`}>
           <ReusableList data={StoreCategoryData} renderItem={renderItem} />
         </View>
-
         <TouchableOpacity
           onPress={handleDirect}
           style={tw`${mainTheme?.primary} absolute -bottom-10 right-7 rounded p-2`}>

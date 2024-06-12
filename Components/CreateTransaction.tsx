@@ -75,7 +75,7 @@ function CreateTransaction() {
   };
 
   const styles = {
-    input: `text-sm font-medium p-4 rounded-lg border border-stone-800 text-white tracking-[1px]`,
+    input: `text-sm font-medium p-4 rounded-lg border border-stone-800 text-white tracking-[1px] `,
   };
   return (
     <ScrollView style={tw`flex-1 bg-[#0c0c0c]`}>
@@ -167,7 +167,10 @@ function CreateTransaction() {
             <TextInput
               placeholder="Description"
               placeholderTextColor={'gray'}
-              style={tw`${styles?.input}`}
+              style={tw`${styles?.input} min-h-[150px]`}
+              multiline
+              numberOfLines={5}
+              maxLength={100}
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}

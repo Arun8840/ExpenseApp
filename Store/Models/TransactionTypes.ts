@@ -20,4 +20,5 @@ export interface CategoryTypes {
   icon: string;
   useage?: number;
   totalAmount: number[];
+  budget: number;
 }

@@ -104,9 +104,12 @@ function CreateCategory() {
           }}
           render={({field: {onChange, onBlur, value}}) => (
             <TextInput
+              multiline
+              numberOfLines={5}
+              maxLength={100}
               placeholder="Description"
               placeholderTextColor={'gray'}
-              style={tw`${styles?.input} border-stone-800 `}
+              style={tw`${styles?.input} border-stone-800 min-h-[200px]`}
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
@@ -133,7 +136,6 @@ function CreateCategory() {
             );
           })}
         </View>
-        {/* //todo description */}
 
         <View style={tw`flex flex-row justify-end pt-4 gap-2`}>
           <TouchableOpacity

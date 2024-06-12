@@ -3,8 +3,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Transaction from './tabScreens/Transcation';
 import Account from './tabScreens/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
+import FetherIcon from 'react-native-vector-icons/Feather';
 import Analytics from './tabScreens/Analytics';
 import Settings from '../Screens/Settings';
+import Limiter from './tabScreens/Limiter';
 const Tab = createBottomTabNavigator();
 function Home() {
   return (
@@ -34,14 +36,14 @@ function Home() {
       <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
-            <Icon name="person" size={30} color={color} />
+            <FetherIcon name="sliders" size={30} color={color} />
           ),
           tabBarActiveTintColor: '#DCFFB7',
           tabBarInactiveTintColor: 'gray',
           headerShown: false,
         }}
-        name="Account"
-        component={Account}
+        name="Budgets"
+        component={Limiter}
       />
       <Tab.Screen
         options={{
