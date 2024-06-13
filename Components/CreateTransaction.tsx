@@ -167,7 +167,7 @@ function CreateTransaction() {
             <TextInput
               placeholder="Description"
               placeholderTextColor={'gray'}
-              style={tw`${styles?.input} min-h-[150px]`}
+              style={tw`${styles?.input} min-h-[100px]`}
               multiline
               numberOfLines={5}
               maxLength={100}

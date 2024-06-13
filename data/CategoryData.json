@@ -8,7 +8,10 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
-    "budget": 0,
+    "budget": {
+      "amount": 0,
+      "isBudgeted": false
+    },
     "icon": "cart"
   },
   {
@@ -20,7 +23,10 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
-    "budget": 0,
+    "budget": {
+      "amount": 0,
+      "isBudgeted": false
+    },
     "icon": "home-city"
   },
   {
@@ -32,7 +38,10 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
-    "budget": 0,
+    "budget": {
+      "amount": 0,
+      "isBudgeted": false
+    },
     "icon": "van-utility"
   },
   {
@@ -44,7 +53,10 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
-    "budget": 0,
+    "budget": {
+      "amount": 0,
+      "isBudgeted": false
+    },
     "icon": "car-side"
   },
   {
@@ -56,7 +68,10 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
-    "budget": 0,
+    "budget": {
+      "amount": 0,
+      "isBudgeted": false
+    },
     "icon": "movie-open"
   },
   {
@@ -68,7 +83,10 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
-    "budget": 0,
+    "budget": {
+      "amount": 0,
+      "isBudgeted": false
+    },
     "icon": "cards-heart"
   },
   {
@@ -80,7 +98,10 @@
     "color": "text-[#FFFFFF]",
     "useage": 0,
     "totalAmount": [],
-    "budget": 0,
+    "budget": {
+      "amount": 0,
+      "isBudgeted": false
+    },
     "icon": "food-turkey"
   }
 ]

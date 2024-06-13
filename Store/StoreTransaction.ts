@@ -9,6 +9,8 @@ interface StateType {
   create_Category: (item: CategoryTypes) => void;
   delete_Transaction: (item: TransactionTypes) => void;
   update_Transaction: (item: TransactionTypes) => void;
+  update_Budget: (item: TransactionTypes) => void;
+  set_Budget: (item: TransactionTypes) => void;
 }
 
 const StoreTransaction = create<StateType>((set, get) => ({
@@ -53,6 +55,23 @@ const StoreTransaction = create<StateType>((set, get) => ({
     }));
     return true;
   },
+  set_Budget: (budgetData: any) => {
+    let storeData = get();
+    let updated = storeData?.CategoryData?.map(category_items => {
+      if (category_items?.id === budgetData?.id) {
+        return {
+          ...category_items,
+          budget: {
+            amount: budgetData?.budget?.amount,
+            isBudgeted: budgetData?.budget?.isBudgeted,
+          },
+        };
+      }
+      return category_items;
+    });
+    set(state => ({...state, CategoryData: updated}));
+  },
+  update_Budget: (budgetData: any) => {},
 }));
 
 export default StoreTransaction;
