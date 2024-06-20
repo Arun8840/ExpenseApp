@@ -16,10 +16,12 @@ import StoreTransaction from '../../Store/StoreTransaction';
 import useGetTheme from '../../Utility/Theme';
 import {CategoryTypes} from '../../Store/Models/TransactionTypes';
 import ReusableList from '../../Utility/ReusableList';
+import Cards from '../../Components/Cards';
 function Transaction() {
   // todo store data
   const transactionList = StoreTransaction(state => state?.transactions);
   const categoryList = StoreTransaction(state => state?.CategoryData);
+  const cardData = StoreTransaction(state => state?.CardData);
   const navigation: any = useNavigation();
   const handleRedirect = () => {
     navigation.navigate('Settings');
@@ -61,6 +63,11 @@ function Transaction() {
     ),
     [],
   );
+
+  // todo enabled Card data
+  const EnabledCard: any = cardData?.find(
+    allItems => allItems?.isSelected === true,
+  );
   return (
     <>
       <ScrollView alwaysBounceVertical style={tw`bg-[#0C0C0C]`}>
@@ -80,28 +87,14 @@ function Transaction() {
         </View>
 
         {/* //todo card */}
-        <View style={tw` px-1 py-1  flex-1`}>
-          <View
-            style={tw`bg-stone-800/50 flex  flex-1  rounded-xl p-3  h-[200px]`}>
-            <View style={tw`flex flex-row justify-between items-center`}>
-              <MaterialIcon
-                name="integrated-circuit-chip"
-                style={tw`${mainTheme?.textPrimary}`}
-                size={30}
-              />
-              <Text style={tw`text-white font-bold italic pr-2`}>VISA</Text>
-            </View>
-            <Text style={tw` font-semibold tracking-[5px] text-white py-10`}>
-              63819411481148
-            </Text>
-            <Text
-              style={tw`text-white/50 py-1 uppercase tracking-wide text-sm`}>
-              Card Holder Name
-            </Text>
-            <Text style={tw`text-white tracking-wide text-sm`}>
-              Arun Prakash
-            </Text>
-          </View>
+        <View style={tw` px-1 py-1 border flex-1`}>
+          <Cards
+            showBalance={{
+              show: true,
+              value: 0,
+            }}
+            accounts={EnabledCard}
+          />
         </View>
 
         <Text style={tw`text-lg font-medium tracking-wide  text-white p-2`}>
@@ -134,8 +127,7 @@ function Transaction() {
               return <ListItems key={index} lists={lists} index={index} />;
             })
           ) : (
-            <View
-              style={tw`flex-1 min-h-[150px] flex justify-center items-center`}>
+            <View style={tw`flex-1 flex justify-center items-center`}>
               <Text style={tw`text-gray-500 p-2 text-xs tracking-wide`}>
                 No Transaction Found
               </Text>

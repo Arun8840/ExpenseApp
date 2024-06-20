@@ -5,8 +5,8 @@ import Account from './tabScreens/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FetherIcon from 'react-native-vector-icons/Feather';
 import Analytics from './tabScreens/Analytics';
-import Settings from '../Screens/Settings';
 import Limiter from './tabScreens/Limiter';
+import ExpenseAccount from './ExpenseAccount';
 const Tab = createBottomTabNavigator();
 function Home() {
   return (
@@ -64,8 +64,8 @@ function Home() {
           tabBarActiveTintColor: '#DCFFB7',
           tabBarInactiveTintColor: 'gray',
         }}
-        name="Settings"
-        component={Settings}
+        name="Account"
+        component={ExpenseAccount}
       />
     </Tab.Navigator>
   );

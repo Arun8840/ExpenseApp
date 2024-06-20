@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Welcome from './Screens/Welcome';
 import Home from './Screens/Home';
 import TransactionDetails from './Screens/TransactionDetails';
-import Settings from './Screens/Settings';
+import Settings from './Screens/Account';
 import CreateTransaction from './Components/CreateTransaction';
 import tw from 'twrnc';
 import useGetTheme from './Utility/Theme';

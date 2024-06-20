@@ -1,21 +1,29 @@
 import {create} from 'zustand';
-import {CategoryTypes, TransactionTypes} from './Models/TransactionTypes';
+import {
+  CardTypes,
+  CategoryTypes,
+  TransactionTypes,
+} from './Models/TransactionTypes';
 import Categorys from '../data/CategoryData.json';
+import CardDatas from '../data/CardData.json';
 
 interface StateType {
   transactions: TransactionTypes[];
   CategoryData: CategoryTypes[];
+  CardData: CardTypes[];
   create_Transaction: (item: TransactionTypes) => void;
   create_Category: (item: CategoryTypes) => void;
   delete_Transaction: (item: TransactionTypes) => void;
   update_Transaction: (item: TransactionTypes) => void;
   update_Budget: (item: TransactionTypes) => void;
   set_Budget: (item: TransactionTypes) => void;
+  enableCard: (items: CardTypes) => void;
 }
 
 const StoreTransaction = create<StateType>((set, get) => ({
   transactions: [],
   CategoryData: Categorys,
+  CardData: CardDatas,
   // create new transaction
   create_Transaction: (newItem: TransactionTypes) => {
     set(state => ({transactions: [...state?.transactions, newItem]}));
@@ -72,6 +80,16 @@ const StoreTransaction = create<StateType>((set, get) => ({
     set(state => ({...state, CategoryData: updated}));
   },
   update_Budget: (budgetData: any) => {},
+  enableCard: (cardData: CardTypes) => {
+    set((state: {CardData: CardTypes[]}) => ({
+      ...state,
+      CardData: state.CardData?.map(item =>
+        item?.id === cardData?.id
+          ? {...item, isSelected: !item?.isSelected}
+          : {...item, isSelected: false},
+      ),
+    }));
+  },
 }));
 
 export default StoreTransaction;

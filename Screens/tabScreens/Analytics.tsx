@@ -1,5 +1,11 @@
 import React, {useCallback} from 'react';
-import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Pressable,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import tw from 'twrnc';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import StoreTransaction from '../../Store/StoreTransaction';
@@ -26,46 +32,51 @@ function Analytics() {
   const renderItem = useCallback(
     (CategorysTypes: CategoryTypes) => (
       <TouchableOpacity
+        onPress={() => handleRedirect(CategorysTypes?.name)}
         key={CategorysTypes?.id}
-        style={tw`min-w-[170px] h-[100px] mx-auto rounded-lg shadow-md p-2 ${CategorysTypes?.bgColor}`}
-        onPress={() => handleRedirect(CategorysTypes?.name)}>
-        <View style={tw` flex flex-row items-center`}>
-          <View
-            style={tw`flex justify-center items-center h-[30px] w-[30px] rounded-lg`}>
+        style={tw`w-full flex flex-row items-center justify-between rounded shadow-md py-3 border-b border-stone-600/50`}>
+        <View style={tw`flex flex-row items-center gap-2`}>
+          <View style={tw`${CategorysTypes?.bgColor} rounded p-2 relative`}>
             <MaterialIcon
+              size={20}
               name={CategorysTypes?.icon}
-              style={tw`text-lg ${CategorysTypes?.color}`}
+              style={tw`text-white`}
             />
+            {/* //todo badge */}
+            {CategorysTypes?.useage !== 0 && (
+              <View
+                style={tw`absolute -right-1 -top-2 w-[20px] h-[20px] bg-red-500 rounded-full flex justify-center items-center`}>
+                <Text style={tw`text-white`}>{CategorysTypes?.useage}</Text>
+              </View>
+            )}
           </View>
-          <Text style={tw`flex-1 text-white text-sm font-bold`}>
+          <Text
+            style={tw`text-lg font-medium ${CategorysTypes?.color} capitalize tracking-wide`}>
             {CategorysTypes?.name}
           </Text>
         </View>
 
-        <View style={tw`flex-1 flex justify-center items-center`}>
-          <Text
-            style={tw`text-[30px] text-center text-white font-bold px-2 py-3`}>
-            {CategorysTypes?.useage}
-          </Text>
-        </View>
+        <MaterialIcon
+          name="chevron-right"
+          style={tw`text-white px-3 text-lg`}
+        />
       </TouchableOpacity>
     ),
     [],
   );
   return (
-    <ScrollView style={tw` bg-[#0c0c0c] relative p-5`}>
-      <View style={tw`flex-1`}>
-        {/* //todo total spends */}
-        <View style={tw`flex flex-row flex-wrap gap-3`}>
-          <ReusableList data={StoreCategoryData} renderItem={renderItem} />
-        </View>
-        <TouchableOpacity
-          onPress={handleDirect}
-          style={tw`${mainTheme?.primary} absolute -bottom-10 right-7 rounded p-2`}>
-          <Icon name="add" size={30} />
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+    <View style={tw`bg-[#0c0c0c] flex-1 p-2`}>
+      {/* //todo list items */}
+      <ScrollView style={tw`flex-1  relative`}>
+        <ReusableList data={StoreCategoryData} renderItem={renderItem} />
+      </ScrollView>
+      {/* //todo new category add button */}
+      <TouchableOpacity
+        onPress={handleDirect}
+        style={tw`${mainTheme?.primary} absolute bottom-10 right-8 rounded-full p-3`}>
+        <Icon name="add" size={30} />
+      </TouchableOpacity>
+    </View>
   );
 }
 

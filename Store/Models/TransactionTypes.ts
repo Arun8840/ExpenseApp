@@ -25,3 +25,13 @@ export interface CategoryTypes {
     isBudgeted: boolean;
   };
 }
+
+export interface CardTypes {
+  id: number;
+  holderName: string;
+  accountNo: number;
+  accountType: string;
+  icon: string;
+  isSelected: boolean;
+  amount: number;
+}

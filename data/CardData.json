@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "holderName": "Arun Prakash",
+    "accountNo": 1234567890,
+    "accountType": "savings",
+    "icon": "cart",
+    "isSelected": false,
+    "amount": 0
+  },
+  {
+    "id": 2,
+    "holderName": "Arun Prakash",
+    "accountNo": 1234567890,
+    "accountType": "Salary",
+    "icon": "cart",
+    "isSelected": true,
+    "amount": 30000
+  }
+]

@@ -183,10 +183,18 @@ function CreateTransaction() {
 
         {/* //todo category */}
         <View>
-          <Text
-            style={tw`font-medium text-sm tracking-wide p-2 text-stone-500`}>
-            Category:
-          </Text>
+          <View style={tw`flex flex-row items-center p-2 gap-x-1`}>
+            <Text style={tw`font-medium text-sm tracking-wide text-stone-500`}>
+              Category:
+            </Text>
+            {selectedCategory && (
+              <View style={tw`${mainTheme?.primary} px-2 py-1 rounded`}>
+                <Text style={tw`text-xs text-center font-medium tracking-wide`}>
+                  {selectedCategory}
+                </Text>
+              </View>
+            )}
+          </View>
           <View style={tw`flex  flex-row flex-wrap gap-2 p-2`}>
             {CategoryData?.map(items => {
               return (
@@ -197,7 +205,7 @@ function CreateTransaction() {
                     items?.name === selectedCategory
                       ? `${items?.bgColor}`
                       : 'bg-stone-800'
-                  } rounded-full w-[60px] h-[60px] flex justify-center items-center`}>
+                  } rounded-full w-[60px] h-[60px] flex justify-center items-center relative`}>
                   <MaterialIcon
                     style={
                       items?.name === selectedCategory

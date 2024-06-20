@@ -8,7 +8,7 @@ function Account() {
       style={tw`bg-[#0c0c0c] flex flex-row justify-center items-center flex-1`}>
       <Text
         style={tw`font-mono text-yellow-50 text-center text-lg tracking-wide`}>
-        Settings
+        Account
       </Text>
       <Button
         title="Press me"
