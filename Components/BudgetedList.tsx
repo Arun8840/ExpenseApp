@@ -10,7 +10,7 @@ import Rupee from 'react-native-vector-icons/MaterialIcons';
 import useGetTheme from '../Utility/Theme';
 
 function BudgetedList() {
-  const {colormain} = useGetTheme();
+  const {colormain, mainTheme} = useGetTheme();
   const StoreCategoryData = StoreTransaction(state => state?.CategoryData);
   const navigation: any = useNavigation();
   const handleEditBudget = (items: any) => {
@@ -26,6 +26,8 @@ function BudgetedList() {
     let totalPercentage = Math.round(percentage) ?? 0;
     // todo is exeed the limiter amount
     let isExcedAmount = totalAmount > CategorysTypes?.budget?.amount;
+    let excedAmount =
+      isExcedAmount && CategorysTypes?.budget?.amount - totalAmount;
     let progresStyle: any = {
       backgroundColor: isExcedAmount ? 'red' : colormain,
       padding: 3,
@@ -101,10 +103,12 @@ function BudgetedList() {
               <View style={progresStyle}></View>
             </View>
             <Text
-              style={tw`text-right p-1 font-medium tracking-wide text-sm ${
-                isExcedAmount ? 'text-red-500' : 'text-white'
+              style={tw`text-right px-1 pt-2 font-medium tracking-wide text-sm ${
+                isExcedAmount ? 'text-red-500' : mainTheme?.textPrimary
               }`}>
-              {isExcedAmount ? 'Amount Exceded' : totalPercentage + '%'}
+              {isExcedAmount
+                ? `Amount Exceded ${excedAmount}`
+                : totalPercentage + '%'}
             </Text>
           </View>
         </>

@@ -61,6 +61,20 @@ const StoreTransaction = create<StateType>((set, get) => ({
         existItem => existItem?.id !== deleteItem?.id,
       ),
     }));
+    set(state => ({
+      CategoryData: state?.CategoryData?.map(oldValue => {
+        if (oldValue?.name === deleteItem?.expenseCategory) {
+          return {
+            ...oldValue,
+            useage: (oldValue.useage ?? 0) - 1,
+            totalAmount: oldValue?.totalAmount?.filter(
+              existAmount => existAmount !== deleteItem?.totalAmount,
+            ),
+          };
+        }
+        return oldValue;
+      }),
+    }));
     return true;
   },
   set_Budget: (budgetData: any) => {

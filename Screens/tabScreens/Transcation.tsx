@@ -34,6 +34,8 @@ function Transaction() {
 
   let isValid_showCreateButton = transactionList?.length === 0;
 
+  // todo get all expenses amount
+  const all_amount = transactionList?.map(items => items?.totalAmount);
   const renderItem = useCallback(
     (CategorysTypes: CategoryTypes) => (
       <TouchableOpacity
@@ -68,6 +70,8 @@ function Transaction() {
   const EnabledCard: any = cardData?.find(
     allItems => allItems?.isSelected === true,
   );
+  let totalAmount = all_amount?.reduce((acc, curr) => acc + curr, 0);
+  let getBalanceAmount = EnabledCard?.amount - totalAmount;
   return (
     <>
       <ScrollView alwaysBounceVertical style={tw`bg-[#0C0C0C]`}>
@@ -91,7 +95,7 @@ function Transaction() {
           <Cards
             showBalance={{
               show: true,
-              value: 0,
+              value: getBalanceAmount,
             }}
             accounts={EnabledCard}
           />
