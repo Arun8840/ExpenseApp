@@ -15,6 +15,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import UpdateTransaction from './Components/UpdateTransaction';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import BudgetEdit from './Components/BudgetEdit';
+import SplashScreen from './Components/SplashScreen';
 const Stack = createNativeStackNavigator();
 const App = (): JSX.Element => {
   const {colormain} = useGetTheme();
@@ -23,7 +24,12 @@ const App = (): JSX.Element => {
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaView style={tw`flex-1 bg-[#0C0C0C]`}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="welcome">
+          <Stack.Navigator initialRouteName="Splash">
+            <Stack.Screen
+              options={{headerShown: false}}
+              name="splash"
+              component={SplashScreen}
+            />
             <Stack.Screen
               options={{headerShown: false}}
               name="welcome"
