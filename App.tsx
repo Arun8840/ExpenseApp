@@ -13,7 +13,6 @@ import FilterExpenses from './Screens/FilterExpenses';
 import CreateCategory from './Components/CreateCategory';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import UpdateTransaction from './Components/UpdateTransaction';
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import BudgetEdit from './Components/BudgetEdit';
 import SplashScreen from './Components/SplashScreen';
 const Stack = createNativeStackNavigator();
@@ -56,7 +55,7 @@ const App = (): JSX.Element => {
               component={TransactionDetails}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="Settings"
               component={Settings}
             />

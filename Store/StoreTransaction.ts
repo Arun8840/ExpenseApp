@@ -6,11 +6,14 @@ import {
 } from './Models/TransactionTypes';
 import Categorys from '../data/CategoryData.json';
 import CardDatas from '../data/CardData.json';
-
+import {ThemeTypes} from '../Utility/Theme';
+import AllThemeData from '../data/CustomThemeData.json';
 interface StateType {
   transactions: TransactionTypes[];
   CategoryData: CategoryTypes[];
   CardData: CardTypes[];
+  Theme: ThemeTypes;
+  allTheme: any[];
   create_Transaction: (item: TransactionTypes) => void;
   create_Category: (item: CategoryTypes) => void;
   delete_Transaction: (item: TransactionTypes) => void;
@@ -18,12 +21,15 @@ interface StateType {
   update_Budget: (item: TransactionTypes) => void;
   set_Budget: (item: TransactionTypes) => void;
   enableCard: (items: CardTypes) => void;
+  setTheme: (item: ThemeTypes) => void;
 }
 
 const StoreTransaction = create<StateType>((set, get) => ({
   transactions: [],
   CategoryData: Categorys,
   CardData: CardDatas,
+  allTheme: AllThemeData,
+  Theme: {} as ThemeTypes,
   // create new transaction
   create_Transaction: (newItem: TransactionTypes) => {
     set(state => ({transactions: [...state?.transactions, newItem]}));
@@ -103,6 +109,12 @@ const StoreTransaction = create<StateType>((set, get) => ({
           : {...item, isSelected: false},
       ),
     }));
+  },
+
+  // todo set theme
+  setTheme: (data: ThemeTypes) => {
+    let {primary, secondary, textPrimary, textSecondary} = data;
+    set(state => ({...state, Theme: {...state.Theme, primary, textPrimary}}));
   },
 }));
 

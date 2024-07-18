@@ -1,59 +1,99 @@
 [
   {
+    "primary": "#FF5733",
+    "secondary": "",
+    "textPrimary": "#FF5733",
+    "textSecondary": "",
     "color": "bg-[#FF5733]",
     "textColor": "text-[#FF5733]",
     "name": "Sunset",
     "id": "1"
   },
   {
+    "primary": "#481E14",
+    "secondary": "",
+    "textPrimary": "#481E14",
+    "textSecondary": "",
     "color": "bg-[#481E14]",
     "textColor": "text-[#481E14]",
     "name": "Emerald",
     "id": "2"
   },
   {
+    "primary": "#3357FF",
+    "secondary": "",
+    "textPrimary": "#3357FF",
+    "textSecondary": "",
     "color": "bg-[#3357FF]",
     "textColor": "text-[#3357FF]",
     "name": "Ocean",
     "id": "3"
   },
   {
+    "primary": "#240750",
+    "secondary": "",
+    "textPrimary": "#240750",
+    "textSecondary": "",
     "color": "bg-[#240750]",
     "textColor": "text-[#240750]",
     "name": "Blossom",
     "id": "4"
   },
   {
+    "primary": "#78A083",
+    "secondary": "",
+    "textPrimary": "#78A083",
+    "textSecondary": "",
     "color": "bg-[#78A083]",
     "textColor": "text-[#78A083]",
     "name": "Tangerine",
     "id": "5"
   },
   {
+    "primary": "#8C33FF",
+    "secondary": "",
+    "textPrimary": "#8C33FF",
+    "textSecondary": "",
     "color": "bg-[#8C33FF]",
     "textColor": "text-[#8C33FF]",
     "name": "Lavender",
     "id": "6"
   },
   {
+    "primary": "#A91D3A",
+    "secondary": "",
+    "textPrimary": "#A91D3A",
+    "textSecondary": "",
     "color": "bg-[#A91D3A]",
     "textColor": "text-[#A91D3A]",
     "name": "Aqua",
     "id": "7"
   },
   {
+    "primary": "#03AED2",
+    "secondary": "",
+    "textPrimary": "#03AED2",
+    "textSecondary": "",
     "color": "bg-[#03AED2]",
     "textColor": "text-[#03AED2]",
     "name": "Sunflower",
     "id": "8"
   },
   {
+    "primary": "#FF3333",
+    "secondary": "",
+    "textPrimary": "#FF3333",
+    "textSecondary": "",
     "color": "bg-[#FF3333]",
     "textColor": "text-[#FF3333]",
     "name": "Crimson",
     "id": "9"
   },
   {
+    "primary": "#3333FF",
+    "secondary": "",
+    "textPrimary": "#3333FF",
+    "textSecondary": "",
     "color": "bg-[#3333FF]",
     "textColor": "text-[#3333FF]",
     "name": "Sapphire",
