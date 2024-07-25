@@ -35,3 +35,12 @@ export interface CardTypes {
   isSelected: boolean;
   amount: number;
 }
+
+export interface RemainderTypes {
+  id: number;
+  category: string;
+  description: string;
+  amount: any;
+  date: string;
+  notes: string;
+}

@@ -15,9 +15,11 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import UpdateTransaction from './Components/UpdateTransaction';
 import BudgetEdit from './Components/BudgetEdit';
 import SplashScreen from './Components/SplashScreen';
+import Remainders from './Screens/Remainders';
+import CreateRemainder from './Components/CreateRemainder';
 const Stack = createNativeStackNavigator();
 const App = (): JSX.Element => {
-  const {colormain} = useGetTheme();
+  const {colormain}: any = useGetTheme();
 
   return (
     <GestureHandlerRootView style={{flex: 1}}>
@@ -73,6 +75,32 @@ const App = (): JSX.Element => {
               }}
               name="Transactions"
               component={FilterExpenses}
+            />
+            <Stack.Screen
+              options={{
+                headerShown: true,
+                headerStyle: {
+                  backgroundColor: '#000000',
+                },
+                headerTitleStyle: {
+                  color: 'white',
+                },
+                headerTintColor: colormain,
+                headerBackTitle: 'Back',
+              }}
+              name="remainders"
+              component={Remainders}
+            />
+            <Stack.Screen
+              options={{
+                headerShown: true,
+                presentation: 'formSheet',
+                headerStyle: {
+                  backgroundColor: colormain,
+                },
+              }}
+              name="Set Remainder"
+              component={CreateRemainder}
             />
             <Stack.Screen
               options={{

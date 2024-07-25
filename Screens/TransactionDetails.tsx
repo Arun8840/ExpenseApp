@@ -16,7 +16,7 @@ function TransactionDetails() {
   const route = useRoute();
   const navigation: any = useNavigation();
   const {paramValue}: any = route.params;
-  const {colormain} = useGetTheme();
+  const {colormain}: any = useGetTheme();
   const deleteItem = StoreTransaction(state => state?.delete_Transaction);
   // ! delete expense
   const handleDelete = () => {

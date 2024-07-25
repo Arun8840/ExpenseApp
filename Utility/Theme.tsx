@@ -18,7 +18,7 @@ const useGetTheme = () => {
   };
 
   let defaultTheme = {
-    primary: `bg-[#41B06E]`,
+    primary: `bg-[#FFF455]`,
     secondary: 'bg-black',
     textPrimary: 'text-[#CEFC86]',
     textSecondary: 'text-white',

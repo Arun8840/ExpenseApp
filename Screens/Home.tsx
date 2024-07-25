@@ -1,7 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Transaction from './tabScreens/Transcation';
-import Account from './tabScreens/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FetherIcon from 'react-native-vector-icons/Feather';
 import Analytics from './tabScreens/Analytics';

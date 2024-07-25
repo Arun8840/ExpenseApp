@@ -2,6 +2,7 @@ import {create} from 'zustand';
 import {
   CardTypes,
   CategoryTypes,
+  RemainderTypes,
   TransactionTypes,
 } from './Models/TransactionTypes';
 import Categorys from '../data/CategoryData.json';
@@ -14,6 +15,7 @@ interface StateType {
   CardData: CardTypes[];
   Theme: ThemeTypes;
   allTheme: any[];
+  remainders: RemainderTypes[];
   create_Transaction: (item: TransactionTypes) => void;
   create_Category: (item: CategoryTypes) => void;
   delete_Transaction: (item: TransactionTypes) => void;
@@ -29,6 +31,24 @@ const StoreTransaction = create<StateType>((set, get) => ({
   CategoryData: Categorys,
   CardData: CardDatas,
   allTheme: AllThemeData,
+  remainders: [
+    {
+      id: 1,
+      category: 'Food',
+      description: 'Lunch at a restaurant',
+      amount: 25.0,
+      date: '2024-07-25',
+      notes: 'Meeting with a client',
+    },
+    {
+      id: 2,
+      category: 'Food2',
+      description: 'Lunch at a restaurant',
+      amount: 25.0,
+      date: '2024-07-25',
+      notes: 'Meeting with a client',
+    },
+  ],
   Theme: {} as ThemeTypes,
   // create new transaction
   create_Transaction: (newItem: TransactionTypes) => {

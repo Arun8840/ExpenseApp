@@ -20,11 +20,15 @@ import Cards from '../../Components/Cards';
 function Transaction() {
   // todo store data
   const transactionList = StoreTransaction(state => state?.transactions);
+  const remainderList = StoreTransaction(state => state?.remainders);
   const categoryList = StoreTransaction(state => state?.CategoryData);
   const cardData = StoreTransaction(state => state?.CardData);
   const navigation: any = useNavigation();
   const handleRedirect = () => {
     navigation.navigate('Settings');
+  };
+  const handleRedirect_remainders = () => {
+    navigation.navigate('remainders');
   };
 
   const handleRedirect_Category = (type: any) => {
@@ -41,7 +45,7 @@ function Transaction() {
       <TouchableOpacity
         onPress={() => handleRedirect_Category(CategorysTypes?.name)}
         key={CategorysTypes?.id}
-        style={tw`min-w-[140px] h-[100px] mx-auto rounded-lg shadow-md p-1 ${CategorysTypes?.bgColor}`}>
+        style={tw`min-w-[140px] h-[100px] mx-auto rounded shadow-md p-1 bg-stone-800`}>
         <View style={tw` flex flex-row items-center`}>
           <View
             style={tw`flex justify-center items-center h-[30px] w-[30px] rounded-lg`}>
@@ -72,6 +76,8 @@ function Transaction() {
   );
   let totalAmount = all_amount?.reduce((acc, curr) => acc + curr, 0);
   let getBalanceAmount = EnabledCard?.amount - totalAmount;
+  // todo length of remainders
+  let remainderLength = remainderList?.length;
   return (
     <>
       <ScrollView alwaysBounceVertical style={tw`bg-[#0C0C0C]`}>
@@ -90,6 +96,24 @@ function Transaction() {
           </TouchableOpacity>
         </View>
 
+        {/* //todo remainders */}
+        {remainderLength > 0 && (
+          <TouchableOpacity
+            onPress={handleRedirect_remainders}
+            style={tw`flex flex-row items-center justify-between bg-stone-900 rounded-lg px-2 py-3 w-[98%] mx-auto`}>
+            <Text
+              style={tw`text-white px-2 text-sm tracking-wider text-stone-300 font-semibold`}>
+              Remainders
+            </Text>
+            {/* badge */}
+            <View
+              style={tw`bg-red-500 w-[30px] h-[30px] rounded-lg justify-center items-center`}>
+              <Text style={tw`text-white text-white font-semibold`}>
+                {remainderLength}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
         {/* //todo card */}
         <View style={tw` px-1 py-1 border flex-1`}>
           <Cards
@@ -104,12 +128,13 @@ function Transaction() {
         <Text style={tw`text-lg font-medium tracking-wide  text-white p-2`}>
           Categories
         </Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={tw`flex flex-row gap-2 pl-2`}>
-            <ReusableList data={categoryList} renderItem={renderItem} />
-          </View>
-        </ScrollView>
-
+        <View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={tw`flex flex-row gap-2 pl-2`}>
+              <ReusableList data={categoryList} renderItem={renderItem} />
+            </View>
+          </ScrollView>
+        </View>
         {/* //todo header and create button */}
         <View style={tw`flex flex-row justify-between items-center py-3 px-3 `}>
           <Text style={tw`text-lg font-medium tracking-wide  text-white`}>
@@ -131,7 +156,7 @@ function Transaction() {
               return <ListItems key={index} lists={lists} index={index} />;
             })
           ) : (
-            <View style={tw`flex-1 flex justify-center items-center`}>
+            <View style={tw`flex justify-center items-center`}>
               <Text style={tw`text-gray-500 p-2 text-xs tracking-wide`}>
                 No Transaction Found
               </Text>
