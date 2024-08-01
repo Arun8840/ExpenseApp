@@ -24,6 +24,8 @@ interface StateType {
   set_Budget: (item: TransactionTypes) => void;
   enableCard: (items: CardTypes) => void;
   setTheme: (item: ThemeTypes) => void;
+  setRemainder: (item: RemainderTypes) => void;
+  RemoveRemainder: (id: any) => void;
 }
 
 const StoreTransaction = create<StateType>((set, get) => ({
@@ -135,6 +137,22 @@ const StoreTransaction = create<StateType>((set, get) => ({
   setTheme: (data: ThemeTypes) => {
     let {primary, secondary, textPrimary, textSecondary} = data;
     set(state => ({...state, Theme: {...state.Theme, primary, textPrimary}}));
+  },
+
+  // todo set a new remainder
+  setRemainder: (remainderData: RemainderTypes) => {
+    set(state => ({
+      ...state,
+      remainders: [...state?.remainders, remainderData],
+    }));
+  },
+  RemoveRemainder: (remainderid: any) => {
+    set(state => ({
+      ...state,
+      remainders: state?.remainders?.filter(
+        values => values?.id !== remainderid,
+      ),
+    }));
   },
 }));
 

@@ -6,8 +6,11 @@ import FetherIcon from 'react-native-vector-icons/Feather';
 import Analytics from './tabScreens/Analytics';
 import Limiter from './tabScreens/Limiter';
 import ExpenseAccount from './ExpenseAccount';
+import useGetTheme from '../Utility/Theme';
 const Tab = createBottomTabNavigator();
 function Home() {
+  const {onlyColor} = useGetTheme();
+  console.log(onlyColor);
   return (
     <Tab.Navigator
       screenOptions={{
@@ -26,7 +29,7 @@ function Home() {
           tabBarIcon: ({color, size}) => (
             <Icon name="home" size={30} color={color} />
           ),
-          tabBarActiveTintColor: '#DCFFB7',
+          tabBarActiveTintColor: onlyColor,
           tabBarInactiveTintColor: 'gray',
           headerShown: false,
         }}
@@ -37,7 +40,7 @@ function Home() {
           tabBarIcon: ({color, size}) => (
             <FetherIcon name="sliders" size={30} color={color} />
           ),
-          tabBarActiveTintColor: '#DCFFB7',
+          tabBarActiveTintColor: onlyColor,
           tabBarInactiveTintColor: 'gray',
           headerShown: false,
         }}
@@ -49,7 +52,7 @@ function Home() {
           tabBarIcon: ({color, size}) => (
             <Icon name="stats-chart" size={30} color={color} />
           ),
-          tabBarActiveTintColor: '#DCFFB7',
+          tabBarActiveTintColor: onlyColor,
           tabBarInactiveTintColor: 'gray',
         }}
         name="Categories"
@@ -60,7 +63,7 @@ function Home() {
           tabBarIcon: ({color, size}) => (
             <Icon name="settings" size={30} color={color} />
           ),
-          tabBarActiveTintColor: '#DCFFB7',
+          tabBarActiveTintColor: onlyColor,
           tabBarInactiveTintColor: 'gray',
         }}
         name="Account"

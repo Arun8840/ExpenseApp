@@ -19,7 +19,7 @@ function Cards({
   showBalance = {show: false, value: 0},
 }: propsTypes) {
   const EnableCard = StoreTransaction(state => state?.enableCard);
-  const {mainTheme, colormain} = useGetTheme();
+  const {mainTheme, colormain}: any = useGetTheme();
   //   todo handle enable card
   const handleEnable = useCallback(() => {
     // setEnable(!isEnabled);

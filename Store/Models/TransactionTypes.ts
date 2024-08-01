@@ -41,6 +41,7 @@ export interface RemainderTypes {
   category: string;
   description: string;
   amount: any;
-  date: string;
+  date: any;
   notes: string;
+  isDateOpen?: boolean;
 }

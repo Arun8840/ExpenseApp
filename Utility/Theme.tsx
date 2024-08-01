@@ -25,8 +25,8 @@ const useGetTheme = () => {
   };
   let isNotEmpty = Object.keys(SelectedTheme).length > 0;
   let mainTheme: ThemeTypes = isNotEmpty ? colormain : defaultTheme;
-
-  return {colormain, mainTheme};
+  let onlyColor = SelectedTheme?.primary ?? '#FFF455';
+  return {colormain, mainTheme, onlyColor};
 };
 
 export default useGetTheme;

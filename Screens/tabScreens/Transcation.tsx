@@ -18,6 +18,15 @@ import {CategoryTypes} from '../../Store/Models/TransactionTypes';
 import ReusableList from '../../Utility/ReusableList';
 import Cards from '../../Components/Cards';
 function Transaction() {
+  // todo today
+  const CurrentDate = () => {
+    const date = new Date();
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const dayOfWeek = date.toLocaleDateString('en-US', {weekday: 'long'});
+    const month = date.toLocaleDateString('en-US', {month: 'long'});
+    return `${month} ${day} ${dayOfWeek}`;
+  };
   // todo store data
   const transactionList = StoreTransaction(state => state?.transactions);
   const remainderList = StoreTransaction(state => state?.remainders);
@@ -45,7 +54,7 @@ function Transaction() {
       <TouchableOpacity
         onPress={() => handleRedirect_Category(CategorysTypes?.name)}
         key={CategorysTypes?.id}
-        style={tw`min-w-[140px] h-[100px] mx-auto rounded shadow-md p-1 bg-stone-800`}>
+        style={tw`min-w-[140px] h-[100px] mx-auto rounded-xl shadow-md p-1 bg-stone-800`}>
         <View style={tw` flex flex-row items-center`}>
           <View
             style={tw`flex justify-center items-center h-[30px] w-[30px] rounded-lg`}>
@@ -84,7 +93,7 @@ function Transaction() {
         {/* //todo top header */}
         <View style={tw`flex flex-row items-center justify-between px-3 py-5 `}>
           <Text style={tw`text-center   ${mainTheme?.textPrimary}`}>
-            Friday, 12 May
+            {CurrentDate()}
           </Text>
           <TouchableOpacity
             onPress={handleRedirect}
@@ -107,7 +116,7 @@ function Transaction() {
             </Text>
             {/* badge */}
             <View
-              style={tw`bg-red-500 w-[30px] h-[30px] rounded-lg justify-center items-center`}>
+              style={tw`bg-red-500 w-[30px] h-[30px] rounded-full justify-center items-center`}>
               <Text style={tw`text-white text-white font-semibold`}>
                 {remainderLength}
               </Text>

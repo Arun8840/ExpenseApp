@@ -1,17 +1,39 @@
 import React, {useCallback} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {Alert, ScrollView, Text, View} from 'react-native';
 import StoreTransaction from '../Store/StoreTransaction';
 import ReusableList from '../Utility/ReusableList';
 import tw from 'twrnc';
 import {RemainderTypes} from '../Store/Models/TransactionTypes';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import useGetTheme from '../Utility/Theme';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
 function Remainders() {
   const navigation: any = useNavigation();
   const remainderItems = StoreTransaction(state => state?.remainders);
+  const DeleteRemainder = StoreTransaction(state => state?.RemoveRemainder);
   const {mainTheme} = useGetTheme();
+
+  const handleDeleteRemainder = (val: RemainderTypes) => {
+    Alert.alert(
+      'Confirm Action',
+      `Are you sure you want to delete ${val?.category} ?`,
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => {
+            DeleteRemainder(val?.id);
+          },
+        },
+      ],
+      {cancelable: false},
+    );
+  };
   const renderItems = useCallback(
     (items: RemainderTypes) => {
       return (
@@ -36,8 +58,10 @@ function Remainders() {
             Description : {items?.description}
           </Text>
           <View style={tw`flex flex-row justify-end`}>
-            <TouchableOpacity style={tw`bg-red-500 p-2 rounded-lg`}>
-              <Text style={tw`text-white`}>Remove</Text>
+            <TouchableOpacity
+              onPress={() => handleDeleteRemainder(items)}
+              style={tw`bg-red-500 p-2 rounded-lg`}>
+              <Icon name="delete" size={20} style={tw`text-white`} />
             </TouchableOpacity>
           </View>
         </View>
